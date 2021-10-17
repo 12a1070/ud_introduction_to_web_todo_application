@@ -24,6 +24,8 @@ class TasksController < ApplicationController
 
   private
     def task_params
+# セキュリティ対策でtask_params経由でデータをモデルにセット
       params[:task].permit(:title)
+      # paramsにはtask項目から入ったデータが送られてくる。フォームから送信されてきたもののうちタイトルカラムのみデータベースに格納
     end
 end
