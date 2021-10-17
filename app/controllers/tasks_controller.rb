@@ -32,6 +32,13 @@ class TasksController < ApplicationController
     end
   end
 
+  def destroy
+    @task = Task.find(params[:id])
+    @task.destroy
+    redirect_to root_path
+  end
+
+
   private
     def task_params
 # セキュリティ対策でtask_params経由でデータをモデルにセット
